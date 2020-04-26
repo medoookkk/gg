@@ -7,74 +7,54 @@ client.login("NzAzODcyNTM4NDU5MjQyNTI3.XqU9sQ.nETSrvRH19oS1RaBO43bSPSPLgg")
 
 
 
-client.on('message', message => {
-if (message.content.split(' ')[0] == '-bc')
- message.guild.members.forEach( member => {
-         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
-member.send(  "
-" + " :loudspeaker:" + message.guild.name + ":
- " + message.content.substr(3));
-                                                            message.delete();
-});});
-
-client.on("message", message => {
-    var prefix = "برافيكس بوتك";
- 
-            var args = message.content.substring(prefix.length).split(" ");
-            if (message.content.startsWith(prefix + "bc")) {
-                         if (!message.member.hasPermission("ADMINISTRATOR"))  return;
- if (!args[1]) {
-                                let embed3 = new Discord.RichEmbed()
-                                .setDescription("لم تقم بكتابة الرسالة ؟ | ⚠")
-                                .setColor("FFFF00")
-                                message.channel.sendEmbed(embed3);
-                            } else {
-
-                            let embed4 = new Discord.RichEmbed()
-                                    .setDescription('تم جاري ارسالة الرسالة ...| 📢')
-
-                                message.channel.sendEmbed(embed4);
-                                                      message.delete();
-                            }
-                          }
-
-     
+console.log(`Logged in as ${client.user.tag}!`);
+ client.user.setGame(+help |Medooo_bot,"http://twitch.tv/DeathShop")
 });
 
 
+client.on("message", async message => {
+    if(message.content.startsWith(prefix + "help")) {
+        let help = new Discord.RichEmbed()
+            .setColor("RANDOM")
+            .setThumbnail(message.author.avatarURL)
+            .setDescription(`**__MEDOOO-bot__ 
+            _الاوامر الاداريه_
+			+mute   | لاعطاء ميوت
+			+unmute | لحدف الميوت
+			+clear  | لمسح الشات 
+			+bc     | للبرودكاست
+			+server | معلومات السيرفر
+			+....
+			+....
+			_الاوامر العامه_
+			+time  | لمعرفت الوقت
+			+....
+			+....
+			+....
+			+....
+            **`);
+            message.channel.sendEmbed(help); // رابط السيرفر يعود الى سيرفر CODES .
+    }
+});
 
-if (message.content.startsWith(prefix + 'mute')) {
-                if(!message.channel.guild) return;
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`__**Access Denied**__\nYou must have __MANAGE_MESSAGES__ perms to use this command.`);
-        let member = message.mentions.members.first();
-                if(!member) {
-            message.channel.send("**Mention Someone To Mute.**");
-            return;
-        }
-    
-            message.channel.overwritePermissions(member.user.id, {
-        SEND_MESSAGES: false
-        }).then(() => {
-        message.reply(`**Successfully, <@${member.user.id}> Muted :ballot_box_with_check: **`)
-        });
-    
-    
-    }
-        if (message.content.startsWith(prefix + 'unmute')) {
-                    if(!message.channel.guild) return;
-        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`__**Access Denied**__\nYou must have __MANAGE_MESSAGES__ perms to use this command.`);
-        let member = message.mentions.members.first();
-        
-        if(!member) {
-            message.channel.send("**Mention Someone To UnMute.**");
-            return;
-        }
-    
-            message.channel.overwritePermissions(member.user.id, {
-        SEND_MESSAGES: true
-        }).then(() => {
-        message.reply(`**Successfully, <@${member.user.id}> UnMuted :ballot_box_with_check: **`)
-        });
-    
-    
-    }
+client.on('message', message => {  //RayGamerMC ChatClear Code
+    var prefix = "+"; //البريفكس الي تبيه
+    if (message.author.bot) return;
+if (message.content.startsWith(prefix + 'clear')) {
+    if(!message.channel.guild) return message.reply('هذا الأمر شغال في السيرفرات فقط');
+        if(!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send('⛔ | ! انت لا تحمل خاصية **MANAGE_MESSAGES**');
+        if(!message.guild.member(client.user).hasPermission('MANAGE_MESSAGES')) return message.channel.send('⛔ |! البوت لا يحمل خاصية **MANAGE_MESSAGES**');
+ let args = message.content.split(" ").slice(1)
+    let messagecount = parseInt(args); //Snow Codes RayGamerMC
+    if (args > 99) return message.reply("**🛑 || يجب ان يكون عدد المسح أقل من 100 .**").then(messages => messages.delete(5000))
+    if(!messagecount) args = '100'; //Snow Codes
+    message.channel.fetchMessages({limit: messagecount + 1}).then(messages => message.channel.bulkDelete(messages));
+    message.channel.send(`\`${args}\` : __عدد الرسائل التي تم مسحها __ `).then(messages => messages.delete(5000));
+  }
+  });  //كود مسح الشات
+
+
+
+
+
+client.login(process.env.BOT_TOKEN);
