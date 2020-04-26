@@ -7,10 +7,10 @@ client.login("NzAzODcyNTM4NDU5MjQyNTI3.XqU9sQ.nETSrvRH19oS1RaBO43bSPSPLgg")
 
 
 
-console.log(`Logged in as ${client.user.tag}!`);
+client.on('ready', () => {
+  console.log(`Logged in as ${client.user.tag}!`);
  client.user.setGame(+help |Medooo_bot,"http://twitch.tv/DeathShop")
 });
-
 
 client.on("message", async message => {
     if(message.content.startsWith(prefix + "help")) {
