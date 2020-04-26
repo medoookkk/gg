@@ -2,30 +2,6 @@ const Discord = require("discord.js");
 const client = new Discord.Client();
 
 
-client.on("guildMemberAdd", member => {
-  member.createDM().then(function (channel) {
-  return channel.send(`:rose:  ولكم نورت السيرفر:rose: 
-:crown:اسم العضو  ${member}:crown:  
-انت العضو رقم ${member.guild.memberCount} `) 
-}).catch(console.error)
-})
-
-client.on('message', message => {
-    if(message.content.startsWith(prefix + 'avatar')) {
-        var mentionned = message.mentions.users.first();
-          var getvalueof;
-          var bot;
-          if(mentionned) {
-            getvalueof = mentionned;
-          } else {
-            getvalueof = message.author;
-          }
-          let avatar = new Discord.RichEmbed()
-          .setTitle(`${getvalueof.username}\'s Avatar`)
-          .setImage(`${getvalueof.avatarURL}`);
-          message.channel.sendEmbed(avatar);
-      }
-});
 
 
 
