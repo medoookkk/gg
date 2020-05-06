@@ -630,8 +630,8 @@ client.on('message', message => {
         var x2 = ['81',
         "72",
         "16",
-        "42",
-		"22",
+        "44",
+		"24",
 		"49",
 		"25",
 		"27",
@@ -1273,7 +1273,7 @@ client.on('message', message => {
   })
 
 client.on('message', message => {
-    if (message.content.startsWith("-link")) {
+    if (message.content.startsWith("-رابط")) {
 
   message.channel.createInvite({
         thing: true,
@@ -3681,7 +3681,6 @@ reaction1.on("collect", r => {
 『-rules ====> يعرض لك قوانين السيرفر
 『-v2min ====> لصنع روم صوتي مؤقت
 『-inv ====> لدعوة البوت الى سيرفرك
-『 By ====> WESO#0001
 **
 `)
    message.author.sendEmbed(embed)
@@ -3739,7 +3738,6 @@ reaction2.on("collect", r => {
 『-unmutechannel ====> فتح الشات
 『-ct <name> ====> انشاء شات
 『-cv <name> ====> انشاء رووم فويس
-『 By ====> WESO#0001
 **
 `)
    message.author.sendEmbed(embed)
@@ -3777,7 +3775,6 @@ reaction3.on("collect", r => {
 『-لعبة مريم ====> مريم
 『-عواصم
 『-يعطيك عقابات قاسية ====> عقاب
-『 By ====> WESO#0001
 `)
    message.author.sendEmbed(embed)
    message.reply('تم ارسالك بلخاص')
@@ -4351,11 +4348,11 @@ client.on("message", message => {
 [ ★・rules   |  قوانين السيرفر  ]
 1) ممنوع السب مع اى سبب 
 2)ممنوع الحديث عن الدين او سبه او مفاوضات دينيه 
-5)ممنوع التحدث عن السياسه  "
-6)ممنوع الصور الاباحيه او اى شي مخل بالادب 
-7)ممنوع نشر صور من  مواقع التواصل الاجتماعى  بحقوق ملكيه
-8)ممنوع طلب الرتبه والرتب تكون بالتفاعل
-9)لاستخدام البوت  فى - #cmd
+3)ممنوع التحدث عن السياسه  "
+4)ممنوع الصور الاباحيه او اى شي مخل بالادب 
+5)ممنوع نشر صور من  مواقع التواصل الاجتماعى  بحقوق ملكيه
+6)ممنوع طلب الرتبه والرتب تكون بالتفاعل
+7)لاستخدام البوت  فى - #cmd
 __
 
 @everyone || @here
