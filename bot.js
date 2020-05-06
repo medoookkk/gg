@@ -868,7 +868,7 @@ client.on('message', PuP => {
 
 client.on('ready', function(){
     var ms = 10000 ;
-    var setGame = [' -help',' MEDOOO_96 Is The Best ',':heart:'];
+    var setGame = [' -help',' MEDOOO_96 Is The Best '];
     var i = -1;
     var j = 0;
     setInterval(function (){
