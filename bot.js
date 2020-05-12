@@ -43,6 +43,15 @@ client.on('message', msg => {  //WESO#0001
   });
 
 
+client.on('message', async message => {
+if(message.content.startsWith(prefix + "Owner")) {
+  let i = client.users.size;
+  if(message.author.id !== '474568043423465478') return message.channel.send(':negative_squared_cross_mark: » انت لست صاحب البوت');
+  message.channel.send("انت صاحب البوت تم الاثبات:white_check_mark:")
+}
+});
+
+
 
 
   
